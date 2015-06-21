@@ -247,3 +247,7 @@ end
 template "#{node[:apache][:document_root]}/index.html" do
   source "index.html.erb"
 end
+
+apache_site "default" do
+  enable true
+end
