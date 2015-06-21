@@ -244,10 +244,6 @@ bash 'logdir_existence_and_restart_apache2' do
   action :run
 end
 
-file "#{node[:apache][:document_root]}/index.html" do
-  action :delete
-  backup false
-  only_if do
-    File.exists?("#{node[:apache][:document_root]}/index.html")
-  end
+template "#{node[:apache][:document_root]}/index.html" do
+  source "index.html.erb"
 end
